@@ -80,7 +80,7 @@ def naloga4(vhod: list, fs: int) -> str:
     #plt.plot(freqs, vhod_norm)
     #plt.show()
     
-    threshold_norm = 0.7
+    threshold_norm = 0.4
 
     # get frequencies
     detected_freqs = []
@@ -89,6 +89,7 @@ def naloga4(vhod: list, fs: int) -> str:
         if vhod_norm[i] > threshold_norm:
             detected_freqs.append(freqs[i])  # find freq in freqs -> calculate 
 
+    detected_freqs = np.unique(detected_freqs)
     #print(detected_freqs)
 
     # get notes
@@ -99,6 +100,7 @@ def naloga4(vhod: list, fs: int) -> str:
                 detected_notes.append(note)
                 continue 
                 
+    detected_notes = np.unique(detected_notes)
     #print(detected_notes)
     possible_chords = []
 
